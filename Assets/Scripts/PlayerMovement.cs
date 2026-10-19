@@ -5,10 +5,15 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rB;
     public float speed;
-
+    //Agregando nuevo sistema de inputs
+    private InputSystem_Actions inputActions;
     void Awake()
     {
         rB = GetComponent<Rigidbody>();
+    }
+    void OnEnable()
+    {
+        inputActions.Player.Enable();
     }
     void Start()
     {
