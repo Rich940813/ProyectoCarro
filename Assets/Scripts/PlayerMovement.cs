@@ -8,11 +8,11 @@ public class PlayerMovement : MonoBehaviour
     //Agregando nuevo sistema de inputs
     private InputSystem_Actions inputActions;
     // Creando un vector para la entrada del usuario.
-    private Vector2 movePlayer;
+    public  Vector2 movePlayer;
     void Awake()
     {
         rB = GetComponent<Rigidbody>();
-        inputActions = new InputSystem_Actions();
+        inputActions = new InputSystem_Actions();// hay que crearlo con new
     }
     void OnEnable()
     {
@@ -27,10 +27,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movePlayer = inputActions.Player.Move.ReadValue<Vector2>();
+        transform.Rotate(Vector3.up,speed*Time.deltaTime*movePlayer.x);
+       
     }
     void FixedUpdate()
     {
-        rB.AddForce(Vector3.forward*speed*movePlayer.y,ForceMode.Impulse);
+        rB.AddForce(transform.forward*speed*movePlayer.y,ForceMode.Impulse);
+       
     }
 
 
