@@ -7,8 +7,16 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     //Agregando nuevo sistema de inputs
     private InputSystem_Actions inputActions;
+    
     // Creando un vector para la entrada del usuario.
     public  Vector2 movePlayer;
+    public GameObject camaraFrontal;
+    bool controlCamaraFrontal = false;
+
+    bool controlCamaraTrasera = true;
+
+    public GameObject camaraTrasera;
+    
     void Awake()
     {
         rB = GetComponent<Rigidbody>();
@@ -29,12 +37,15 @@ public class PlayerMovement : MonoBehaviour
         movePlayer = inputActions.Player.Move.ReadValue<Vector2>();
         transform.Rotate(Vector3.up,speed*Time.deltaTime*movePlayer.x);
        
+       
     }
     void FixedUpdate()
     {
         rB.AddForce(transform.forward*speed*movePlayer.y,ForceMode.Impulse);
        
     }
+
+    
 
 
 

@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33cd999a063d0540bae46941ad232b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoverCarros
-  velocidad: 80
+  velocidad: 60
 --- !u!65 &4901059745159146172
 BoxCollider:
   m_ObjectHideFlags: 0
