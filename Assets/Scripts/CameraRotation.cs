@@ -16,9 +16,11 @@ public class CameraRotation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.Rotate(Vector3.up,playerMovement.speed/12.3f*playerMovement.movePlayer.x*Time.deltaTime);
         transform.position = player.transform.position;
     }
+
+    
 }
