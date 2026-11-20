@@ -8,6 +8,7 @@ public class CrearAvion : MonoBehaviour
     public float speed;
 
     private bool startTurn = true;
+    private bool startTurn2 = false;
    
    void Awake()
     {
@@ -34,14 +35,24 @@ public class CrearAvion : MonoBehaviour
                 rigidbody.angularVelocity = Vector3.zero;
                 rigidbody.linearVelocity = Vector3.zero;
                 Debug.Log("Funcionó la de transform");
+                startTurn2 = true; 
             }
             
         }
 
-         if (transform.position.z < 100)
+         if (transform.position.z < 100 && startTurn2)
         {
              rigidbody.AddTorque(Vector3.up*speed,ForceMode.Impulse);
-             Debug.Log("Si se cumple");
+             Debug.Log(transform.eulerAngles.y);
+             if (transform.eulerAngles.y >359)
+            {
+                startTurn = true;
+                //speed = 0;
+                rigidbody.angularVelocity = Vector3.zero;
+                rigidbody.linearVelocity = Vector3.zero;
+                Debug.Log("Funcionó la de transform22222");
+                startTurn2 = false ; 
+            }
         }
     }
 
