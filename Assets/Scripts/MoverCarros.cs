@@ -23,7 +23,8 @@ public class MoverCarros : MonoBehaviour
     void FixedUpdate()
     {
         rigidbody.AddForce(transform.forward*velocidad,ForceMode.Impulse);
+       
     }
     
-    
+
 }
